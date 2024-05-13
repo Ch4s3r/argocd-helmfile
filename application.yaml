@@ -9,7 +9,7 @@ spec:
 #mention your own repo which include the helmfile.yaml and define the path
     repoURL: https://github.com/Ch4s3r/argocd-helmfile.git
     targetRevision: HEAD
-    path: ./helmfiles/
+    path: helmfiles
   destination:
     server: https://kubernetes.default.svc
     namespace: my-helmfiles-app
