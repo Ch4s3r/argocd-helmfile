@@ -10,8 +10,8 @@ spec:
         - name: cmp-helmfile
           securityContext:
             runAsNonRoot: true
-            runAsUser: 999
-          image: ghcr.io/helmfile/helmfile:v0.157.0
+            runAsUser: 1000
+          image: ghcr.io/helmfile/helmfile:v0.164.0
           imagePullPolicy: IfNotPresent
           # Entrypoint should be Argo CD lightweight CMP server i.e. argocd-cmp-server
           command: [/var/run/argocd/argocd-cmp-server]
@@ -25,9 +25,13 @@ spec:
               name: cmp-helmfile
             - mountPath: /tmp
               name: cmp-tmp
+            - mountPath: /helm
+              name: cmp-helm
       volumes:
         - name: cmp-helmfile
           configMap:
             name: cmp-helmfile
         - emptyDir: {}
           name: cmp-tmp
+        - emptyDir: {}
+          name: cmp-helm
