@@ -14,7 +14,7 @@ releases:
   - name: postgresql
     namespace: postgresql
     chart: bitnami/postgresql
-    version: 15.3.4
+    version: 15.3.5
     values:
       - auth:
           username: secret-user
